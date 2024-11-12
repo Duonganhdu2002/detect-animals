@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify, send_file
+from flask import Flask, request, jsonify, send_file, send_from_directory
 from flask_cors import CORS
 from flask_bcrypt import Bcrypt
 from PIL import Image
@@ -10,10 +10,11 @@ import cv2
 import io
 import sqlite3
 from database import init_db, add_user, get_user, log_request
-
-app = Flask(__name__)
 import random
 import string
+import os
+
+app = Flask(__name__)
 
 def generate_random_secret_key(length=24):
     characters = string.ascii_letters + string.digits + string.punctuation
@@ -76,6 +77,14 @@ def draw_boxes(image, boxes, classes, scores):
         cv2.putText(img, label, (pt1[0], pt1[1] - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 0), 2)
     
     return img
+
+@app.route('/')
+def serve_index():
+    return send_from_directory('drool-html', 'index.html')
+
+@app.route('/<path:path>')
+def serve_static_files(path):
+    return send_from_directory('drool-html', path)
 
 @app.route('/register', methods=['POST'])
 def register():
@@ -150,4 +159,4 @@ def get_request_history():
     return jsonify({'history': history}), 200
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='0.0.0.0', port=5000)
