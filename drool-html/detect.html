@@ -2,242 +2,246 @@
 <html>
 
 <head>
-  <!-- Basic -->
-  <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <!-- Mobile Metas -->
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-  <!-- Site Metas -->
-  <meta name="keywords" content="" />
-  <meta name="description" content="" />
-  <meta name="author" content="" />
+    <!-- Basic -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <!-- Site Metas -->
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
 
-  <title>Animal Detection</title>
+    <title>Animal Detection</title>
 
-  <!-- Bootstrap core CSS -->
-  <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
 
-  <!-- Fonts style -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Poppins:400,700&display=swap" rel="stylesheet">
-  <!-- Custom styles for this template -->
-  <link href="css/style.css" rel="stylesheet" />
-  <!-- Responsive style -->
-  <link href="css/responsive.css" rel="stylesheet" />
+    <!-- Fonts style -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans|Poppins:400,700&display=swap" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="css/style.css" rel="stylesheet" />
+    <!-- Responsive style -->
+    <link href="css/responsive.css" rel="stylesheet" />
 </head>
 
 <body>
-  <!-- Header section starts -->
-  <header class="header_section">
-    <div class="container-fluid">
-      <nav class="navbar navbar-expand-lg custom_nav-container">
-        <a class="navbar-brand" href="index.html">
-          <img src="images/logo.png" alt="">
-        </a>
-        <div class="" id="">
-          <div class="User_option">
-            <form class="form-inline my-2 mb-3 mb-lg-0">
-              <input type="search" placeholder="Search">
-            </form>
-          </div>
-
-          <div class="custom_menu-btn">
-            <button onclick="openNav()">
-              <span class="s-1"></span>
-              <span class="s-2"></span>
-              <span class="s-3"></span>
-            </button>
-          </div>
-          <div id="myNav" class="overlay" style="background-color: #000; opacity: 0.8;">
-            <div class="overlay-content">
-              <a href="index.html">Home</a>
-              <a href="detect.html">Detect</a>
-              <a href="about.html">About</a>
-              <a href="contact.html">Contact Us</a>
-            </div>
-          </div>
-        </div>
-      </nav>
-    </div>
-  </header>
-  <!-- End header section -->
-
-  <!-- Detection section -->
-  <section class="detection_section layout_padding">
-    <div class="container">
-      <div class="heading_container">
-        <img src="images/heading-img.png" alt="">
-        <h2>Animal Detection</h2>
-      </div>
-      <div class="detection_form">
-        <!-- Check if user is logged in -->
-        <script>
-          if (!localStorage.getItem('user_id')) {
-            alert('Bạn chưa đăng nhập');
-            window.location.href = 'login.html';
-          }
-        </script>
-        <form id="uploadForm">
-          <div class="form-group">
-            <label for="file">Choose an image:</label>
-            <input type="file" class="form-control-file" id="file" name="file" accept="image/*" required>
-          </div>
-          <div class="form-group">
-            <label for="threshold">Detection Threshold (0-1):</label>
-            <input type="number" class="form-control" id="threshold" name="threshold" min="0" max="1" step="0.1" value="0.5">
-          </div>
-          <button type="submit" class="btn btn-primary">Detect</button>
-        </form>
-        <div class="result mt-4" id="result">
-          <h2>Detection Results:</h2>
-          <img id="outputImage" class="img-fluid mt-3" style="display: none;" alt="Detected Image">
-          <button id="saveHistory" class="btn btn-success mt-3" style="display: none;">Save History</button>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- End detection section -->
-
-  <!-- Info section -->
-  <section class="info_section">
-    <div class="container">
-      <div class="row">
-        <!-- Contact Info -->
-        <div class="col-md-6 col-lg-3">
-          <div class="info_contact">
-            <h5>CONTACT INFO</h5>
-            <div>
-              <img src="images/call.png" alt="" />
-              <p>+01 1234567890</p>
-            </div>
-            <div>
-              <img src="images/mail.png" alt="" />
-              <p>demo@gmail.com</p>
-            </div>
-          </div>
-        </div>
-        <!-- Opening Hours -->
-        <div class="col-md-6 col-lg-3">
-          <div class="info_time">
-            <h5>Opening Hours Shop</h5>
-            <div>
-              <p>Monday to Friday</p>
-            </div>
-            <div>
-              <p>07:00 am to 04:00 pm</p>
-            </div>
-          </div>
-        </div>
-        <!-- Social Media -->
-        <div class="col-md-6 col-lg-3">
-          <div class="info_social">
-            <h5>Social Media</h5>
-            <div class="social_container">
-              <div>
-                <a href="">
-                  <img src="images/fb.png" alt="" />
+    <!-- Header section starts -->
+    <header style="background-color: #e7d619;" class="header_section">
+        <div class="container-fluid">
+            <nav class="navbar navbar-expand-lg custom_nav-container">
+                <a class="navbar-brand" href="index.html">
+                    <img src="images/logo.png" alt="">
                 </a>
-              </div>
-              <div>
-                <a href="">
-                  <img src="images/twitter.png" alt="" />
-                </a>
-              </div>
-              <div>
-                <a href="">
-                  <img src="images/linkedin.png" alt="" />
-                </a>
-              </div>
-              <div>
-                <a href="">
-                  <img src="images/instagram.png" alt="" />
-                </a>
-              </div>
+                <div class="" id="">
+                    <div class="User_option">
+                        <form class="form-inline my-2 mb-3 mb-lg-0">
+                            <input type="search" placeholder="Search">
+                        </form>
+                    </div>
+
+                    <div class="custom_menu-btn">
+                        <button onclick="openNav()">
+                            <span class="s-1"></span>
+                            <span class="s-2"></span>
+                            <span class="s-3"></span>
+                        </button>
+                    </div>
+                    <div id="myNav" class="overlay" style="background-color: #000; opacity: 0.8;">
+                        <div class="overlay-content">
+                            <a href="index.html">Home</a>
+                            <a href="detect.html">Detect</a>
+                            <a href="about.html">About</a>
+                            <a href="contact.html">Contact Us</a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <!-- End header section -->
+
+    <!-- Detection section -->
+    <section class="detection_section layout_padding">
+        <div class="container">
+            <div class="heading_container">
+                <img src="images/heading-img.png" alt="">
+                <h2>Animal Detection</h2>
             </div>
-          </div>
+            <div id="detection_container">
+                <div id="detection_form" class="detection_form">
+                    <!-- Check if user is logged in -->
+                    <script>
+                        if (!localStorage.getItem('user_id')) {
+                            alert('Bạn chưa đăng nhập');
+                            window.location.href = 'login.html';
+                        }
+                    </script>
+                    <form id="uploadForm">
+                        <div class="form-group">
+                            <label for="file">Choose an image:</label>
+                            <input type="file" class="form-control-file" id="file" name="file" accept="image/*"
+                                required>
+                        </div>
+                        <div class="form-group">
+                            <label for="threshold">Detection Threshold (0-1):</label>
+                            <input type="number" class="form-control" id="threshold" name="threshold" min="0" max="1"
+                                step="0.1" value="0.5">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Detect</button>
+                    </form>
+                </div>
+                <div class="result mt-4" id="result">
+                    <h2>Detection Results:</h2>
+                    <img id="outputImage" class="img-fluid mt-3" style="display: none;" alt="Detected Image">
+                    <button id="saveHistory" class="btn btn-success mt-3" style="display: none;">Save History</button>
+                </div>
+            </div>
         </div>
-        <!-- Newsletter -->
-        <div class="col-md-6 col-lg-3">
-          <div class="info_form pl-lg-4">
-            <h5>Newsletter</h5>
-            <form action="">
-              <input type="text" placeholder="Enter Your Email" />
-              <button type="submit">
-                Subscribe
-              </button>
-            </form>
-          </div>
+    </section>
+    <!-- End detection section -->
+
+    <!-- Info section -->
+    <section class="info_section">
+        <div class="container">
+            <div class="row">
+                <!-- Contact Info -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="info_contact">
+                        <h5>CONTACT INFO</h5>
+                        <div>
+                            <img src="images/call.png" alt="" />
+                            <p>+01 1234567890</p>
+                        </div>
+                        <div>
+                            <img src="images/mail.png" alt="" />
+                            <p>demo@gmail.com</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Opening Hours -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="info_time">
+                        <h5>Opening Hours Shop</h5>
+                        <div>
+                            <p>Monday to Friday</p>
+                        </div>
+                        <div>
+                            <p>07:00 am to 04:00 pm</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Social Media -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="info_social">
+                        <h5>Social Media</h5>
+                        <div class="social_container">
+                            <div>
+                                <a href="">
+                                    <img src="images/fb.png" alt="" />
+                                </a>
+                            </div>
+                            <div>
+                                <a href="">
+                                    <img src="images/twitter.png" alt="" />
+                                </a>
+                            </div>
+                            <div>
+                                <a href="">
+                                    <img src="images/linkedin.png" alt="" />
+                                </a>
+                            </div>
+                            <div>
+                                <a href="">
+                                    <img src="images/instagram.png" alt="" />
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Newsletter -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="info_form pl-lg-4">
+                        <h5>Newsletter</h5>
+                        <form action="">
+                            <input type="text" placeholder="Enter Your Email" />
+                            <button type="submit">
+                                Subscribe
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </section>
-  <!-- End info section -->
+    </section>
+    <!-- End info section -->
 
-  <!-- Footer section -->
-  <section class="container-fluid footer_section">
-    <p>
-      Developed by <a href="https://github.com/Duonganhdu2002">Wydanhdu</a>
-    </p>
-  </section>
-  <!-- End footer section -->
+    <!-- Footer section -->
+    <section class="container-fluid footer_section">
+        <p>
+            Developed by <a href="https://github.com/Duonganhdu2002">Wydanhdu</a>
+        </p>
+    </section>
+    <!-- End footer section -->
 
-  <!-- JavaScript files -->
-  <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
-  <script type="text/javascript" src="js/bootstrap.js"></script>
-  <script>
-    function openNav() {
-      document.getElementById("myNav").classList.toggle("menu_width");
-      document.querySelector(".custom_menu-btn").classList.toggle("menu_btn-style");
-    }
+    <!-- JavaScript files -->
+    <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.js"></script>
+    <script>
+        function openNav() {
+            document.getElementById("myNav").classList.toggle("menu_width");
+            document.querySelector(".custom_menu-btn").classList.toggle("menu_btn-style");
+        }
 
-    // JavaScript code for handling form submission and other functionalities
-    document.getElementById('uploadForm').addEventListener('submit', function (event) {
-      event.preventDefault();
+        // JavaScript code for handling form submission and other functionalities
+        document.getElementById('uploadForm').addEventListener('submit', function (event) {
+            event.preventDefault();
 
-      const formData = new FormData();
-      const fileInput = document.getElementById('file');
-      const thresholdInput = document.getElementById('threshold');
-      const userId = localStorage.getItem('user_id');
+            const formData = new FormData();
+            const fileInput = document.getElementById('file');
+            const thresholdInput = document.getElementById('threshold');
+            const userId = localStorage.getItem('user_id');
 
-      formData.append('file', fileInput.files[0]);
-      formData.append('threshold', thresholdInput.value);
-      formData.append('user_id', userId);
+            formData.append('file', fileInput.files[0]);
+            formData.append('threshold', thresholdInput.value);
+            formData.append('user_id', userId);
 
-      fetch('http://127.0.0.1:5000/detect', {
-        method: 'POST',
-        body: formData
-      })
-        .then(response => response.blob())
-        .then(blob => {
-          const imgElement = document.getElementById('outputImage');
-          imgElement.src = URL.createObjectURL(blob);
-          imgElement.style.display = 'block';
+            fetch('http://127.0.0.1:5000/detect', {
+                method: 'POST',
+                body: formData
+            })
+                .then(response => response.blob())
+                .then(blob => {
+                    const imgElement = document.getElementById('outputImage');
+                    imgElement.src = URL.createObjectURL(blob);
+                    imgElement.style.display = 'block';
 
-          document.getElementById('saveHistory').style.display = 'block';
-        })
-        .catch(error => {
-          console.error('Error:', error);
+                    document.getElementById('saveHistory').style.display = 'block';
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
         });
-    });
 
-    document.getElementById('saveHistory').addEventListener('click', function () {
-      const userId = localStorage.getItem('user_id');
+        document.getElementById('saveHistory').addEventListener('click', function () {
+            const userId = localStorage.getItem('user_id');
 
-      fetch('http://127.0.0.1:5000/log_request', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ user_id: userId })
-      })
-        .then(response => response.json())
-        .then(data => {
-          alert(data.message);
-        })
-        .catch(error => {
-          console.error('Error logging request:', error);
+            fetch('http://127.0.0.1:5000/log_request', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ user_id: userId })
+            })
+                .then(response => response.json())
+                .then(data => {
+                    alert(data.message);
+                })
+                .catch(error => {
+                    console.error('Error logging request:', error);
+                });
         });
-    });
-  </script>
+    </script>
 
 </body>
 
