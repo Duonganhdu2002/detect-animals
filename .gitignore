@@ -25,8 +25,8 @@ animals/
 .ipynb_checkpoints/
 
 # Ignore model files
-model/*.pth
-*.h5
+# model/*.pth
+# *.h5
 
 # Ignore dataset and large files
 *.db
