@@ -1,0 +1,50 @@
+# Python cache files
+__pycache__/
+*.py[cod]
+
+# Thư mục môi trường ảo
+venv/
+env/
+.venv/
+.env/
+
+# Tệp log
+*.log
+
+# Tệp hệ thống
+.DS_Store
+Thumbs.db
+
+# Tệp cấu hình IDE
+.idea/
+.vscode/
+
+animals/
+
+# Ignore Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Ignore model files
+model/*.pth
+*.h5
+
+# Ignore dataset and large files
+*.db
+*.sqlite
+*.sqlite3
+*.data
+
+# Ignore log files
+*.log
+
+# Ignore cache files
+.cache/
+*.cache
+
+# Ignore configuration and secrets
+*.env
+secrets/
+
+# Ignore other miscellaneous files
+*.swp
+*.swo
