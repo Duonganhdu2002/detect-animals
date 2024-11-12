@@ -1,154 +1,244 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Animal Detection</title>
-        <link
-            href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
-            rel="stylesheet">
-    </head>
-    <body
-        class="bg-gradient-to-r from-blue-500 to-green-500 min-h-screen flex flex-col items-center ">
+<html>
 
-        <script>
-            // Check if user is logged in
-            if (!localStorage.getItem('user_id')) {
-                alert('Bạn chưa đăng nhập');
-                window.location.href = 'login.html';
-            }
-        </script>
+<head>
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
 
-        <header class="w-full bg-white shadow-md py-4 px-8 flex justify-between items-center">
-            <h1
-                class="text-2xl font-bold text-gray-800">Animal Detection</h1>
-            <div>
-                <button id="requestHistory" class="bg-yellow-500 text-white py-2 px-4 rounded-lg shadow-md hover:bg-yellow-600 focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-opacity-50">Request History</button>
-                <button id="logout" class="bg-red-500 text-white py-2 px-4 rounded-lg shadow-md hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-opacity-50">Logout</button>
-            </div>
-        </header>
-        <div class="bg-white shadow-lg rounded-lg p-8 max-w-lg w-full mt-32">
-            <form id="uploadForm" class="space-y-6">
-                <div>
-                    <label for="file"
-                        class="block text-lg font-medium text-gray-700">Choose
-                        an image:</label>
-                    <input type="file" id="file" name="file" accept="image/*"
-                        required
-                        class="mt-2 block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100">
-                </div>
-                <div>
-                    <label for="threshold"
-                        class="block text-lg font-medium text-gray-700">Detection
-                        Threshold (0-1):</label>
-                    <input type="number" id="threshold" name="threshold" min="0"
-                        max="1" step="0.1" value="0.5"
-                        class="mt-2 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
-                </div>
-                <button type="submit"
-                    class="w-full bg-blue-600 text-white py-3 px-4 rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">Detect</button>
+  <title>Animal Detection</title>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+
+  <!-- Fonts style -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Poppins:400,700&display=swap" rel="stylesheet">
+  <!-- Custom styles for this template -->
+  <link href="css/style.css" rel="stylesheet" />
+  <!-- Responsive style -->
+  <link href="css/responsive.css" rel="stylesheet" />
+</head>
+
+<body>
+  <!-- Header section starts -->
+  <header class="header_section">
+    <div class="container-fluid">
+      <nav class="navbar navbar-expand-lg custom_nav-container">
+        <a class="navbar-brand" href="index.html">
+          <img src="images/logo.png" alt="">
+        </a>
+        <div class="" id="">
+          <div class="User_option">
+            <form class="form-inline my-2 mb-3 mb-lg-0">
+              <input type="search" placeholder="Search">
             </form>
-            <div class="result mt-8" id="result">
-                <h2 class="text-2xl font-bold text-gray-800">Detection
-                    Results:</h2>
-                <img id="outputImage" class="mt-4 rounded-lg shadow-lg"
-                    style="max-width: 100%; display: none;"
-                    alt="Detected Image">
-                <button id="saveHistory" class="mt-4 bg-green-600 text-white py-2 px-4 rounded-lg shadow-md hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50" style="display: none;">Save History</button>
-            </div>
-        </div>
+          </div>
 
-        <div id="historyModal" class="fixed inset-0 bg-gray-800 bg-opacity-50 flex items-center justify-center hidden">
-            <div class="bg-white rounded-lg shadow-lg p-6 max-w-md w-full">
-                <h2 class="text-xl font-bold text-gray-800 mb-4">Request History</h2>
-                <ul id="historyList" class="list-disc pl-5 text-gray-700"></ul>
-                <button id="closeHistory" class="mt-4 bg-gray-500 text-white py-2 px-4 rounded-lg shadow-md hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-opacity-50">Close</button>
+          <div class="custom_menu-btn">
+            <button onclick="openNav()">
+              <span class="s-1"></span>
+              <span class="s-2"></span>
+              <span class="s-3"></span>
+            </button>
+          </div>
+          <div id="myNav" class="overlay" style="background-color: #000; opacity: 0.8;">
+            <div class="overlay-content">
+              <a href="index.html">Home</a>
+              <a href="detect.html">Detect</a>
+              <a href="about.html">About</a>
+              <a href="contact.html">Contact Us</a>
             </div>
+          </div>
         </div>
+      </nav>
+    </div>
+  </header>
+  <!-- End header section -->
 
+  <!-- Detection section -->
+  <section class="detection_section layout_padding">
+    <div class="container">
+      <div class="heading_container">
+        <img src="images/heading-img.png" alt="">
+        <h2>Animal Detection</h2>
+      </div>
+      <div class="detection_form">
+        <!-- Check if user is logged in -->
         <script>
-        document.getElementById('uploadForm').addEventListener('submit', function(event) {
-            event.preventDefault();
-
-            const formData = new FormData();
-            const fileInput = document.getElementById('file');
-            const thresholdInput = document.getElementById('threshold');
-            const userId = localStorage.getItem('user_id'); 
-
-            formData.append('file', fileInput.files[0]);
-            formData.append('threshold', thresholdInput.value);
-            formData.append('user_id', userId); 
-
-            fetch('http://127.0.0.1:5000/detect', {
-                method: 'POST',
-                body: formData
-            })
-            .then(response => response.blob())
-            .then(blob => {
-                const imgElement = document.getElementById('outputImage');
-                imgElement.src = URL.createObjectURL(blob);
-                imgElement.style.display = 'block';
-
-                document.getElementById('saveHistory').style.display = 'block';
-            })
-            .catch(error => {
-                console.error('Error:', error);
-            });
-        });
-
-        document.getElementById('saveHistory').addEventListener('click', function() {
-            const userId = localStorage.getItem('user_id');
-
-            fetch('http://127.0.0.1:5000/log_request', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ user_id: userId })
-            })
-            .then(response => response.json())
-            .then(data => {
-                alert(data.message);
-            })
-            .catch(error => {
-                console.error('Error logging request:', error);
-            });
-        });
-
-        document.getElementById('logout').addEventListener('click', function() {
-            localStorage.removeItem('user_id');
+          if (!localStorage.getItem('user_id')) {
+            alert('Bạn chưa đăng nhập');
             window.location.href = 'login.html';
-        });
+          }
+        </script>
+        <form id="uploadForm">
+          <div class="form-group">
+            <label for="file">Choose an image:</label>
+            <input type="file" class="form-control-file" id="file" name="file" accept="image/*" required>
+          </div>
+          <div class="form-group">
+            <label for="threshold">Detection Threshold (0-1):</label>
+            <input type="number" class="form-control" id="threshold" name="threshold" min="0" max="1" step="0.1" value="0.5">
+          </div>
+          <button type="submit" class="btn btn-primary">Detect</button>
+        </form>
+        <div class="result mt-4" id="result">
+          <h2>Detection Results:</h2>
+          <img id="outputImage" class="img-fluid mt-3" style="display: none;" alt="Detected Image">
+          <button id="saveHistory" class="btn btn-success mt-3" style="display: none;">Save History</button>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- End detection section -->
 
-        document.getElementById('requestHistory').addEventListener('click', function() {
-            const userId = localStorage.getItem('user_id');
+  <!-- Info section -->
+  <section class="info_section">
+    <div class="container">
+      <div class="row">
+        <!-- Contact Info -->
+        <div class="col-md-6 col-lg-3">
+          <div class="info_contact">
+            <h5>CONTACT INFO</h5>
+            <div>
+              <img src="images/call.png" alt="" />
+              <p>+01 1234567890</p>
+            </div>
+            <div>
+              <img src="images/mail.png" alt="" />
+              <p>demo@gmail.com</p>
+            </div>
+          </div>
+        </div>
+        <!-- Opening Hours -->
+        <div class="col-md-6 col-lg-3">
+          <div class="info_time">
+            <h5>Opening Hours Shop</h5>
+            <div>
+              <p>Monday to Friday</p>
+            </div>
+            <div>
+              <p>07:00 am to 04:00 pm</p>
+            </div>
+          </div>
+        </div>
+        <!-- Social Media -->
+        <div class="col-md-6 col-lg-3">
+          <div class="info_social">
+            <h5>Social Media</h5>
+            <div class="social_container">
+              <div>
+                <a href="">
+                  <img src="images/fb.png" alt="" />
+                </a>
+              </div>
+              <div>
+                <a href="">
+                  <img src="images/twitter.png" alt="" />
+                </a>
+              </div>
+              <div>
+                <a href="">
+                  <img src="images/linkedin.png" alt="" />
+                </a>
+              </div>
+              <div>
+                <a href="">
+                  <img src="images/instagram.png" alt="" />
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Newsletter -->
+        <div class="col-md-6 col-lg-3">
+          <div class="info_form pl-lg-4">
+            <h5>Newsletter</h5>
+            <form action="">
+              <input type="text" placeholder="Enter Your Email" />
+              <button type="submit">
+                Subscribe
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- End info section -->
 
-            fetch('http://127.0.0.1:5000/get_request_history', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ user_id: userId })
-            })
-            .then(response => response.json())
-            .then(data => {
-                const historyList = document.getElementById('historyList');
-                historyList.innerHTML = '';
-                data.history.forEach(item => {
-                    const listItem = document.createElement('li');
-                    listItem.textContent = `Request at ${item.timestamp}`;
-                    historyList.appendChild(listItem);
-                });
-                document.getElementById('historyModal').classList.remove('hidden');
-            })
-            .catch(error => {
-                console.error('Error fetching request history:', error);
-            });
-        });
+  <!-- Footer section -->
+  <section class="container-fluid footer_section">
+    <p>
+      Developed by <a href="https://github.com/Duonganhdu2002">Wydanhdu</a>
+    </p>
+  </section>
+  <!-- End footer section -->
 
-        document.getElementById('closeHistory').addEventListener('click', function() {
-            document.getElementById('historyModal').classList.add('hidden');
+  <!-- JavaScript files -->
+  <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+  <script type="text/javascript" src="js/bootstrap.js"></script>
+  <script>
+    function openNav() {
+      document.getElementById("myNav").classList.toggle("menu_width");
+      document.querySelector(".custom_menu-btn").classList.toggle("menu_btn-style");
+    }
+
+    // JavaScript code for handling form submission and other functionalities
+    document.getElementById('uploadForm').addEventListener('submit', function (event) {
+      event.preventDefault();
+
+      const formData = new FormData();
+      const fileInput = document.getElementById('file');
+      const thresholdInput = document.getElementById('threshold');
+      const userId = localStorage.getItem('user_id');
+
+      formData.append('file', fileInput.files[0]);
+      formData.append('threshold', thresholdInput.value);
+      formData.append('user_id', userId);
+
+      fetch('http://127.0.0.1:5000/detect', {
+        method: 'POST',
+        body: formData
+      })
+        .then(response => response.blob())
+        .then(blob => {
+          const imgElement = document.getElementById('outputImage');
+          imgElement.src = URL.createObjectURL(blob);
+          imgElement.style.display = 'block';
+
+          document.getElementById('saveHistory').style.display = 'block';
+        })
+        .catch(error => {
+          console.error('Error:', error);
         });
-    </script>
-    </body>
+    });
+
+    document.getElementById('saveHistory').addEventListener('click', function () {
+      const userId = localStorage.getItem('user_id');
+
+      fetch('http://127.0.0.1:5000/log_request', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ user_id: userId })
+      })
+        .then(response => response.json())
+        .then(data => {
+          alert(data.message);
+        })
+        .catch(error => {
+          console.error('Error logging request:', error);
+        });
+    });
+  </script>
+
+</body>
+
 </html>
