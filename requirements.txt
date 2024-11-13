@@ -10,6 +10,7 @@ torch
 torchvision
 numpy
 opencv-python-headless
+gunicorn
 
 # For training
 # torch
