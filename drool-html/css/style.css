@@ -976,6 +976,7 @@ a:focus {
 
 .contact_section {
   position: relative;
+  padding-bottom: 30px;
 }
 
 .contact_section .form_container {
@@ -1027,7 +1028,6 @@ a:focus {
   border: 1px solid #e7d619;
   border-radius: 0;
   color: #fff;
-  margin-top: 35px;
 }
 
 .contact_section button:hover {
@@ -1044,6 +1044,86 @@ a:focus {
 
 .contact_section .map_container .map-responsive {
   height: 100%;
+}
+
+.login_section .form_container {
+    padding: 0 35px;
+}
+
+.login_section form {
+    margin-top: 45px;
+}
+
+.login_section input {
+    width: 50%;
+    border: none;
+    height: 50px;
+    margin-bottom: 25px;
+    padding-left: 15px;
+    background-color: #ebebeb;
+    outline: none;
+    color: #101010;
+}
+
+.login_section input::placeholder {
+    color: #979696;
+}
+
+.login_section button {
+    display: inline-block;
+    padding: 10px 45px;
+    background-color: #e7d619;
+    color: #ffffff;
+    transition: all 0.3s;
+    border: 1px solid #e7d619;
+    border-radius: 0;
+    color: #fff;
+    margin-top: 35px;
+}
+
+.login_section button:hover {
+    background-color: transparent;
+    color: #e7d619;
+}
+
+.register_section .form_container {
+    padding: 0 35px;
+}
+
+.register_section form {
+    margin-top: 45px;
+}
+
+.register_section input {
+    width: 50%;
+    border: none;
+    height: 50px;
+    margin-bottom: 25px;
+    padding-left: 15px;
+    background-color: #ebebeb;
+    outline: none;
+    color: #101010;
+}
+
+.register_section input::placeholder {
+    color: #979696;
+}
+
+.register_section button {
+    display: inline-block;
+    padding: 10px 45px;
+    background-color: #e7d619;
+    color: #ffffff;
+    transition: all 0.3s;
+    border: 1px solid #e7d619;
+    border-radius: 0;
+    color: #fff;
+    margin-top: 35px;
+}
+
+.register_section button:hover {
+    background-color: transparent;
+    color: #e7d619;
 }
 
 .info_section {

@@ -904,6 +904,33 @@ a:focus {
 
 // end contact section
 
+// login section
+.login_section {
+  .form_container {
+    padding: 0 35px;
+  }
+  form {
+    margin-top: 45px;
+  }
+  input {
+    width: 100%;
+    border: none;
+    height: 50px;
+    margin-bottom: 25px;
+    padding-left: 15px;
+    background-color: #ebebeb;
+    outline: none;
+    color: #101010;
+    &::placeholder {
+      color: #979696;
+    }
+  }
+  button {
+    @include hero_btn($primary1, $white, 10px, 45px, 0);
+    color: #fff;
+    margin-top: 35px;
+  }
+}
 
 // info section
 .info_section {
