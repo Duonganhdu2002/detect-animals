@@ -31,7 +31,7 @@ model.eval()
 
 ANIMAL_CLASSES = [
     'bird', 'cat', 'dog', 'horse', 'sheep', 'cow',
-    'elephant', 'bear', 'zebra', 'giraffe'
+    'elephant', 'bear', 'zebra'
 ]
 
 def load_coco_categories(file_path):
