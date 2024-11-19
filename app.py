@@ -14,7 +14,7 @@ import random
 import string
 import os
 
-app = Flask(__name__)
+app = Flask(__name__) 
 
 def generate_random_secret_key(length=24):
     characters = string.ascii_letters + string.digits + string.punctuation
@@ -27,11 +27,22 @@ bcrypt = Bcrypt(app)
 init_db()
 
 model = torchvision.models.detection.fasterrcnn_resnet50_fpn(weights=torchvision.models.detection.FasterRCNN_ResNet50_FPN_Weights.COCO_V1)
+
 model.eval()
 
+model_path = './model/fasterrcnn_finetuned.pth'
+try:
+    state_dict = torch.load(model_path, map_location=torch.device('cpu'))
+    print(f"Checkpoint loaded from {model_path}. Model state_dict keys:")
+except FileNotFoundError:
+    print(f"No checkpoint found at {model_path}. Using default COCO weights.")
+except Exception as e:
+    print(f"Error loading checkpoint: {e}")
+
+
 ANIMAL_CLASSES = [
-    'bird', 'cat', 'dog', 'horse', 'sheep', 'cow',
-    'elephant', 'bear', 'zebra'
+    'cat', 'dog', 'horse', 'sheep', 'cow',
+    'elephant', 'bear', 'zebra', 'giraffe',
 ]
 
 def load_coco_categories(file_path):

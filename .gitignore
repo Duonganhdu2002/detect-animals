@@ -20,13 +20,13 @@ Thumbs.db
 .vscode/
 
 animals/
-
+# model/
 # Ignore Jupyter Notebook checkpoints
 .ipynb_checkpoints/
 
 # Ignore model files
 # model/*.pth
-# *.h5
+*.pth
 
 # Ignore dataset and large files
 *.db
@@ -48,3 +48,4 @@ secrets/
 # Ignore other miscellaneous files
 *.swp
 *.swo
+path/to/largefile
